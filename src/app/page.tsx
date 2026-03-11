@@ -1,65 +1,105 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="flex flex-1 flex-col gap-12">
+      <header className="flex items-center justify-between">
+        <div className="text-lg font-semibold tracking-tight">
+          PetProfile
+          <span className="ml-2 rounded-full bg-emerald-500/10 px-2 py-0.5 text-xs font-medium text-emerald-300">
+            beta
+          </span>
+        </div>
+        <nav className="flex items-center gap-4 text-sm">
+          <Link
+            href="/login"
+            className="text-slate-200 transition hover:text-white"
+          >
+            Войти
+          </Link>
+          <Link
+            href="/signup"
+            className="rounded-md bg-emerald-500 px-4 py-2 font-medium text-slate-950 transition hover:bg-emerald-400"
+          >
+            Регистрация
+          </Link>
+        </nav>
+      </header>
+
+      <section className="grid flex-1 gap-8 md:grid-cols-[1.4fr,1fr]">
+        <div className="space-y-6 self-center">
+          <h1 className="text-3xl font-bold leading-tight md:text-4xl">
+            Цифровой паспорт питомца, медкарта и напоминания в одном сервисе.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="max-w-xl text-sm text-slate-200 md:text-base">
+            Храните данные о прививках, обработках и особенностях здоровья,
+            делитесь карточкой с семьёй и ветеринаром и получайте напоминания
+            о важных процедурах. Добавьте QR‑код на ошейник, чтобы питомца
+            могли быстрее вернуть домой.
           </p>
+          <div className="flex flex-wrap items-center gap-4">
+            <Link
+              href="/signup"
+              className="rounded-md bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400"
+            >
+              Создать профиль питомца
+            </Link>
+            <p className="text-xs text-slate-300">
+              До 2 питомцев и базовые напоминания — бесплатно.
+            </p>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="flex items-center">
+          <div className="w-full rounded-2xl bg-slate-900/60 p-4 shadow-xl ring-1 ring-slate-800">
+            <div className="mb-4 flex items-center justify-between text-xs text-slate-300">
+              <span>Пример карточки питомца</span>
+              <span className="rounded-full bg-slate-800 px-2 py-0.5">
+                Только вы и ваш ветеринар
+              </span>
+            </div>
+            <div className="space-y-3 rounded-xl bg-slate-950/40 p-4">
+              <div className="flex items-center gap-3">
+                <div className="h-10 w-10 rounded-full bg-slate-800" />
+                <div>
+                  <div className="text-sm font-semibold">Майло</div>
+                  <div className="text-xs text-slate-300">
+                    метис • 2 года • кастрирован
+                  </div>
+                </div>
+              </div>
+              <div className="grid gap-2 text-xs text-slate-200 sm:grid-cols-2">
+                <div className="rounded-lg bg-slate-900/80 p-3">
+                  <div className="text-[11px] uppercase tracking-wide text-slate-400">
+                    Ближайшее
+                  </div>
+                  <div className="mt-1 font-medium">
+                    Вакцина от бешенства — 14 апреля
+                  </div>
+                </div>
+                <div className="rounded-lg bg-slate-900/80 p-3">
+                  <div className="text-[11px] uppercase tracking-wide text-slate-400">
+                    Напоминания
+                  </div>
+                  <div className="mt-1 text-xs">
+                    Email‑напоминание за 7 и 1 день до прививки.
+                  </div>
+                </div>
+              </div>
+              <div className="rounded-lg bg-slate-900/80 p-3 text-xs text-slate-200">
+                <div className="text-[11px] uppercase tracking-wide text-slate-400">
+                  QR‑профиль
+                </div>
+                <p className="mt-1">
+                  Любой, кто отсканирует QR на ошейнике, увидит безопасную
+                  страницу с вашими контактами и важными пометками.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
+
